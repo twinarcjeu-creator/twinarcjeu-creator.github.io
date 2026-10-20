@@ -1,84 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>TWINARC · Arcade néon à deux orbes</title>
-<meta name="description" content="TWINARC : tire un fil entre tes deux orbes, tranche les ennemis, enchaîne les boucles. Jeu d'arcade néon pour Android.">
-<meta name="theme-color" content="#05060d">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Tourney:wght@400&display=swap">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#05060d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>TENSION</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
-<header class="top">
-  <a class="logo" href="./">TWINARC</a>
-  <div class="lang" role="group" aria-label="Langue / Language"><button data-set="fr" aria-pressed="true">FR</button><button data-set="en" aria-pressed="false">EN</button></div>
-</header>
+  <canvas id="game"></canvas>
 
-<main>
-<div class="hero">
-  <div>
-    <h1>TWINARC</h1>
-    <p class="tag" data-l="fr">Deux orbes, un fil, zéro répit.</p>
-    <p class="tag" data-l="en">Two orbs, one wire, no mercy.</p>
-    <p class="sub" data-l="fr">Un jeu d'arcade néon à deux pouces : tends le fil entre tes orbes pour trancher les ennemis, referme des boucles, déclenche des Snaps parfaits et survis à des boss de plus en plus fous.</p>
-    <p class="sub" data-l="en">A neon arcade game for two thumbs: stretch the wire between your orbs to slice enemies, close loops, land perfect Snaps and survive ever-crazier bosses.</p>
-    <a class="cta off" aria-disabled="true"><span data-l="fr">Bientôt sur Google Play</span><span data-l="en">Coming soon to Google Play</span></a>
+  <div id="intro">
+    <h1>TENSION</h1>
+    <div class="gesture" aria-hidden="true">
+      <span class="dot blue"></span>
+      <span class="line"></span>
+      <span class="dot red"></span>
+    </div>
+    <p class="hint">Écarte tes deux pouces</p>
+    <p class="hint-pc">PC : clic gauche = bleu · clic droit = rouge<br>Test clavier : WASD = bleu · flèches = rouge</p>
   </div>
-  <div class="demo"><svg id="demo" viewBox="0 0 300 400" role="img" aria-label="Aperçu animé : deux orbes reliées par un fil neon face à des ennemis"></svg></div>
-</div>
 
-<section id="features">
-  <h2 data-l="fr">Ce qui rend le jeu <span>différent</span></h2>
-  <h2 data-l="en">What makes it <span>different</span></h2>
-  <div class="grid" data-l="fr">
-    <div class="card"><h3>Le fil, ton arme</h3><p>Tu ne tires pas : tu tends un fil. Plus il est tendu, plus il tranche. Relâche au bon moment pour une fronde dévastatrice.</p></div>
-    <div class="card"><h3>16 chapitres + Infini</h3><p>Une campagne de 16 chapitres avec des boss uniques, puis un mode Infini sans fin avec classements.</p></div>
-    <div class="card"><h3>Reliques et pouvoirs</h3><p>Choisis des reliques qui changent ta façon de jouer et fusionne tes pouvoirs pour créer des effets inattendus.</p></div>
-    <div class="card"><h3>Chaque niveau est différent</h3><p>Nouveaux ennemis, objectifs de vague, anomalies et orages : tu ne joues jamais deux fois la même partie.</p></div>
-  </div>
-  <div class="grid" data-l="en">
-    <div class="card"><h3>The wire is your weapon</h3><p>You don't shoot: you stretch a wire. The tighter it is, the deeper it cuts. Release at the right moment for a devastating sling.</p></div>
-    <div class="card"><h3>16 chapters + Endless</h3><p>A 16-chapter campaign with unique bosses, then an Endless mode with leaderboards.</p></div>
-    <div class="card"><h3>Relics and powers</h3><p>Pick relics that change how you play and fuse your powers for unexpected effects.</p></div>
-    <div class="card"><h3>Every level is different</h3><p>New enemies, wave objectives, anomalies and storms: no two runs feel the same.</p></div>
-  </div>
-</section>
-
-<section id="how">
-  <h2 data-l="fr">Comment <span>jouer</span></h2>
-  <h2 data-l="en">How to <span>play</span></h2>
-  <div class="steps" data-l="fr">
-    <div class="step"><p><b>Pose deux doigts</b> sur l'écran : chacun déplace une orbe. Le fil les relie.</p></div>
-    <div class="step"><p><b>Balaie le fil</b> sur les ennemis pour les trancher. Dessine une boucle pour en attraper plusieurs d'un coup.</p></div>
-    <div class="step"><p><b>Tends puis relâche</b> au bon moment : c'est la fronde, et un Snap parfait récompense ta précision.</p></div>
-  </div>
-  <div class="steps" data-l="en">
-    <div class="step"><p><b>Put down two fingers</b>: each one moves an orb. The wire links them.</p></div>
-    <div class="step"><p><b>Sweep the wire</b> through enemies to slice them. Draw a loop to catch several at once.</p></div>
-    <div class="step"><p><b>Stretch, then release</b> at the right moment: that's the sling, and a perfect Snap rewards your precision.</p></div>
-  </div>
-</section>
-
-<section id="help">
-  <div class="help">
-    <h2 data-l="fr">Aide-nous à <span>améliorer le jeu</span></h2>
-    <h2 data-l="en">Help us <span>improve the game</span></h2>
-    <p data-l="fr">Une idée, un bug, un ennemi que tu rêves de voir ? Écris-nous : chaque message est lu.</p>
-    <p data-l="en">An idea, a bug, an enemy you dream of seeing? Write to us: every message is read.</p>
-    <p><a href="mailto:twinarc.jeu@gmail.com">twinarc.jeu@gmail.com</a></p>
-  </div>
-</section>
-</main>
-
-<footer>
-  <span>© 2026 TWINARC</span>
-  <span><a href="privacy.html"><span data-l="fr">Politique de confidentialité</span><span data-l="en">Privacy policy</span></a></span>
-</footer>
-</div>
-<script src="lang.js"></script>
-<script src="demo.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
