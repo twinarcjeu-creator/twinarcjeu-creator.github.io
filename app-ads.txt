@@ -1,0 +1,2 @@
+# app-ads.txt : à remplir quand ton compte AdMob existe, une ligne comme :
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
